@@ -60,7 +60,7 @@ print "<pre>";
 while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
   {
     print "\n";
-    print "$row[firstName]  $row[lastName]  $row[item]";
+    print "$row[fname]  $row[lname]  $row[description]";
   }
 print "</pre>";
 
