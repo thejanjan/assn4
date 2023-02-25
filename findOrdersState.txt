@@ -26,14 +26,17 @@ $state = mysqli_real_escape_string($conn, $state);
 // this is a small attempt to avoid SQL injection
 // better to use prepared statements
 
-$query = "SELECT DISTINCT c.fname, c.lname, s.description
-	FROM customer c
-	JOIN orders o USING (customer_num)
-    JOIN items i USING (order_num)
-    JOIN stock s USING (stock_num)
-    JOIN manufact m ON (s.manu_code=m.manu_code)
-	WHERE m.manu_name = "."'".$state."'"."
-	ORDER BY c.lname;";
+$query = "SELECT DISTINCT firstName, lastName, city FROM customer WHERE state = ";
+$query = $query."'".$state."' ORDER BY 2;";
+
+$query = "SELECT DISTINCT c.fname, c.lname, s.description ";
+$query = $query."FROM customer c ";
+$query = $query."JOIN orders o USING (customer_num) ";
+$query = $query."JOIN items i USING (order_num) ";
+$query = $query."JOIN stock s USING (stock_num) ";
+$query = $query."JOIN manufact m ON (s.manu_code=m.manu_code) ";
+$query = $query."WHERE m.manu_name = "."'".$state."' ";
+$query = $query."ORDER BY c.lname;";
 
 ?>
 
