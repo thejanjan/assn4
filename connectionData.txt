@@ -1,6 +1,6 @@
 <?php
 
-$server = "ix-dev.cs.uoregon.edu";
+$server = "ix.cs.uoregon.edu";
 $dbname ="bighitvideo";
 $user = "guest";
 $pass = "guest";
