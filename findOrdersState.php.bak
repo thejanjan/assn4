@@ -9,7 +9,7 @@ or die('Error connecting to MySQL server.');
 
 <html>
 <head>
-  <title>Another Simple PHP-MySQL Program</title>
+  <title>Manufacturer Query</title>
   </head>
   
   <body bgcolor="white">
@@ -26,8 +26,14 @@ $state = mysqli_real_escape_string($conn, $state);
 // this is a small attempt to avoid SQL injection
 // better to use prepared statements
 
-$query = "SELECT DISTINCT firstName, lastName, city FROM customer WHERE state = ";
-$query = $query."'".$state."' ORDER BY 2;";
+$query = "SELECT DISTINCT c.fname, c.lname, s.description
+	FROM customer c
+	JOIN orders o USING (customer_num)
+    JOIN items i USING (order_num)
+    JOIN stock s USING (stock_num)
+    JOIN manufact m ON (s.manu_code=m.manu_code)
+	WHERE m.manu_name = "."'".$state."'"."
+	ORDER BY c.lname;";
 
 ?>
 
@@ -65,7 +71,7 @@ mysqli_close($conn);
 <hr>
 
 <p>
-<a href="findCustState.txt" >Contents</a>
+<a href="findOrdersState.txt" >Contents</a>
 of the PHP program that created this page. 	 
  
 </body>
