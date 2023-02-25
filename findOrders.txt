@@ -1,0 +1,56 @@
+
+
+<html>
+<head>
+       <title>Manufacturer Query</title>
+</head>
+
+<body bgcolor="white">
+
+<h3>Connecting to stores7 using MySQL/PHP</h3>
+
+
+
+<hr>
+
+<p>
+Please enter the input name of a manufacturer.<br><br>
+Currently accepts:<br>
+- Anza<br>
+- Hero<br>
+- Husky<br>
+- Karsten<br>
+- Nikolus<br>
+- Norge<br>
+- ProCycle<br>
+- Shimara<br>
+- Smith<br>
+
+<p>
+
+<form action="findOrdersState.php" method="POST">
+
+<input type="text" name="state"> <br>
+<input type="submit" value="submit">
+<input type="reset" value="erase">
+</form>
+
+
+
+<hr>
+
+<p>
+<a href="findOrders.txt" >Contents</a>
+of this page.
+
+<p>
+<a href="findOrdersState.txt" >Contents</a>
+of the PHP page that gets called.
+(And the <a href="connectionData.txt" >connection data</a>,
+kept separately for security reasons.)
+
+
+
+
+</body>
+</html>
